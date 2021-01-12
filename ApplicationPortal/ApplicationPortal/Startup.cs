@@ -33,6 +33,7 @@ namespace ApplicationPortal
                 endpoints.MapGet("/", async context =>
                 {
                     //
+                    //hi from VS
                     await context.Response.WriteAsync("Hello World!");
                 });
             });
