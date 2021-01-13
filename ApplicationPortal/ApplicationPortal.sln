@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationPortal", "ApplicationPortal\ApplicationPortal.csproj", "{407D1DEE-3BE7-4B2A-874A-9CD29CFAE099}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationPortal", "ApplicationPortal\ApplicationPortal.csproj", "{407D1DEE-3BE7-4B2A-874A-9CD29CFAE099}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

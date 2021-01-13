@@ -21,7 +21,6 @@ namespace ApplicationPortal
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    //
                 });
     }
 }
