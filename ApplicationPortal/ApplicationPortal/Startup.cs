@@ -8,18 +8,29 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ApplicationPortal.Data.Interfaces;
-using ApplicationPortal.Data.Mocks;
+using Microsoft.Extensions.Configuration;
+using ApplicationPortal.Data;
+using Microsoft.EntityFrameworkCore;
+using ApplicationPortal.Data.Repository;
 
 namespace ApplicationPortal
 {
     public class Startup
     {
+
+        private IConfigurationRoot confString;
+
+        public Startup(IWebHostEnvironment _webHostEnvironment)
+        {
+            _webHostEnvironment = (IWebHostEnvironment)new ConfigurationBuilder().SetBasePath(_webHostEnvironment.ContentRootPath).AddJsonFile("dbsettongs.json").Build();
+        }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IAllCars, MockCars>();
-            services.AddTransient<ICarsCategory, MockCategory>();
+            services.AddDbContext<AppDBContent>(options => options.UseSqlServer(confString.GetConnectionString("DefaultConnection")));
+            services.AddTransient<IAllCars, CarRepository>();
+            services.AddTransient<ICarsCategory, CategoryRepository>();
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 
